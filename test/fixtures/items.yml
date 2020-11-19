@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  itemName: MyString
+  price: 1.5
+  foodType: MyString
+  qunanty: 1
+
+two:
+  itemName: MyString
+  price: 1.5
+  foodType: MyString
+  qunanty: 1
