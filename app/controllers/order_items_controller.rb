@@ -4,12 +4,14 @@ class OrderItemsController < ApplicationController
   # GET /order_items
   # GET /order_items.json
   def index
-    @order_items = OrderItem.all
+    render json: OrderItem.all
   end
 
   # GET /order_items/1
   # GET /order_items/1.json
   def show
+    orderItem = OrderItem.find(params[:id])
+    render json: orderItem
   end
 
   # GET /order_items/new
