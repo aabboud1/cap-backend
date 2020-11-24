@@ -4,7 +4,6 @@ class CreateOrderItems < ActiveRecord::Migration[6.0]
       t.integer :order_id
       t.integer :item_id
       t.integer :quantity
-      t.string :comment
 
       t.timestamps
     end

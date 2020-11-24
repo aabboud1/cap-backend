@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_171315) do
     t.integer "order_id"
     t.integer "item_id"
     t.integer "quantity"
-    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
