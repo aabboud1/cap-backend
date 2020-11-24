@@ -14,15 +14,17 @@ ActiveRecord::Schema.define(version: 2020_11_19_171315) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "itemName"
-    t.float "price"
-    t.string "foodType"
-    t.integer "qunanty"
+    t.string "name"
+    t.integer "price"
+    t.string "image"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_171315) do
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id"
     t.integer "item_id"
-    t.integer "qunanty"
+    t.integer "quantity"
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

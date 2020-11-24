@@ -1,10 +1,10 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-      t.string :itemName
-      t.float :price
-      t.string :foodType
-      t.integer :qunanty
+      t.string :name
+      t.integer :price
+      t.string :image
+      t.string :category
 
       t.timestamps
     end

@@ -1,63 +1,31 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  # GET /items
-  # GET /items.json
   def index
     render json: Item.all
   end
 
-  # GET /items/1
-  # GET /items/1.json
+  
   def show
+    item = Item.find(params[:id])
+    render json: item
   end
 
-  # GET /items/new
-  def new
-    @item = Item.new
-  end
 
-  # GET /items/1/edit
-  def edit
-  end
-
-  # POST /items
-  # POST /items.json
   def create
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    item = Item.new(item_params)
+    if item.save
+      render json: item
     end
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
+    item = Item.find(params["id"])
+    item.update(:name, :price, :image)
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    item = Item.destroy(params[:id])
+    render json: Item.all
     end
   end
 
@@ -69,6 +37,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:itemName, :price, :foodType, :qunanty)
+      params.require(:item).permit(:name, :price, :image, :category)
     end
 end

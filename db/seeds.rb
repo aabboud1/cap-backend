@@ -9,18 +9,18 @@
 Item.destroy_all
 
 
-foodType = ["Dessert", "Main", "App", "Soup", "Salad"]
-
-Item.create(price: 15.45,
-            foodType: 'Main',
-            itemName: "Couscous",
-            qunanty: 50)
-
-20.times{
-    Item.create(
-        price: rand(0..50),
-        foodType: foodType.sample,
-        itemName: Faker::Food.dish,
-        qunanty: rand(3..20)
-    )
-}
+Item.create(name: "Couscous",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
+Item.create(name: "Rfissa",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS39F8swq9BWhjyuJcJojevzmNgrUBXK01Lcg&usqp=CAU', category: 'Main')
+Item.create(name: "Siffa",price: rand(1..20), image: 'https://i.pinimg.com/236x/b3/63/37/b363378a7139ef17593bbf60b7ad1ef7--walima.jpg', category: 'Main')
+Item.create(name: "Pastella",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
+Item.create(name: "Tajine with Meat",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
+Item.create(name: "Tajine with Chicken",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
+Item.create(name: "Tajine with Fish",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
+Item.create(name: "Harerra",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'soup')
+Item.create(name: "Mnsimn",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Dessert')
+Item.create(name: "Braghir",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Dessert')
+Item.create(name: "Moroccan Cookies",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Dessert')
+Item.create(name: "Morccan Cake",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Dessert')
+Item.create(name: "Mixed Salad",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Salad')
+Item.create(name: "Mixed Salad",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Salad')
+Item.create(name: "Mixed Salad",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Salad')
