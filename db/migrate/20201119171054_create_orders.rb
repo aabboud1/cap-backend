@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :address
       t.string :comments
-      t.boolean :status
+      t.string :status
 
       t.timestamps
     end
