@@ -2,7 +2,7 @@ require 'date'
 
 class OrdersController < ApplicationController
   def index
-    render json: Orders.all
+    render json: Order.all
   end
   
   def show

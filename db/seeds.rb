@@ -11,7 +11,7 @@ Item.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
 
-Admin.create(username: "Owner", password: "password")
+# Admin.create(username: "Owner", password: "password")
 
 Item.create(name: "Couscous",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf--VsVjUM5_fCeMAbKlMWuicLoOOJldHK7A&usqp=CAU', category: 'Main')
 Item.create(name: "Rfissa",price: rand(1..20), image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS39F8swq9BWhjyuJcJojevzmNgrUBXK01Lcg&usqp=CAU', category: 'Main')
