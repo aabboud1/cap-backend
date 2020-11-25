@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    byebug
     customer = Customer.find_or_create_by(
                 first_name: params["first_name"],
                 last_name: params["last_name"],

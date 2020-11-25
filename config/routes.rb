@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :admins
   resources :items
   resources :order_items
   resources :orders
