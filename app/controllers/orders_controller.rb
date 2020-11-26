@@ -2,19 +2,35 @@ require 'date'
 
 class OrdersController < ApplicationController
   def index
-    # Note: This doesn't work.
-    # result = Order.includes(:customer).references(:customer)
-    result = Order.find_by_sql(
-      "SELECT orders.id, orders.date, orders.address, orders.comments, orders.status, 
-      customers.first_name, customers.last_name, customers.email
-      from orders INNER JOIN customers
-      ON customers.id = orders.customer_id")
-    render json: result
+    token = request.headers["Authentication"].split(" ")[1]
+    @owner = Owner.find(decode(token)["user_id"])
+    if @owner:
+      result = Order.find_by_sql(
+        "SELECT orders.id, orders.date, orders.address, orders.comments, orders.status, 
+        customers.first_name, customers.last_name, customers.email
+        from orders INNER JOIN customers
+        ON customers.id = orders.customer_id")
+      render json: result
+    else:
+      render json: {
+        authenticated: false,
+        message: "must be an owner"
+      }, status: :unauthorized 
+    end
   end
   
   def show
-    order = OrderItem.where(order_id: params[:id])
-    render json: order
+    token = request.headers["Authentication"].split(" ")[1]
+    @owner = Owner.find(decode(token)["user_id"])
+    if @owner:
+      order = OrderItem.where(order_id: params[:id])
+      render json: order
+    else:
+      render json: {
+        authenticated: false,
+        message: "must be an owner"
+      }, status: :unauthorized 
+    end
   end
 
   def create
