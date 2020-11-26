@@ -1,4 +1,4 @@
 class OrderItem < ApplicationRecord
-    belongs_to :Order, optional: true
-    belongs_to :Item, optional: true
+    belongs_to :order, optional: true
+    belongs_to :item, optional: true
 end

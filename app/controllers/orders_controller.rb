@@ -2,11 +2,18 @@ require 'date'
 
 class OrdersController < ApplicationController
   def index
-    render json: Order.all
+    # Note: This doesn't work.
+    # result = Order.includes(:customer).references(:customer)
+    result = Order.find_by_sql(
+      "SELECT orders.id, orders.date, orders.address, orders.comments, orders.status, 
+      customers.first_name, customers.last_name, customers.email
+      from orders INNER JOIN customers
+      ON customers.id = orders.customer_id")
+    render json: result
   end
   
   def show
-    order = Order.find(params[:id])
+    order = OrderItem.where(order_id: params[:id])
     render json: order
   end
 

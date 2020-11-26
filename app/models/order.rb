@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-    belongs_to :Customer, optional: true
-    has_many :OrderItems
-    has_many :Items, through: :OrderItems
+    belongs_to :customer, optional: true
+    has_many :orderItems
+    has_many :items, through: :orderItems
 end

@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
-    has_many :OrderItems
-    has_many :Orders, through: :OrderItems
+    has_many :orderItems
+    has_many :orders, through: :orderItem
 end
