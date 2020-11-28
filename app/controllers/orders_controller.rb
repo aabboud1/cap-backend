@@ -4,14 +4,14 @@ class OrdersController < ApplicationController
   def index
     token = request.headers["Authentication"].split(" ")[1]
     @owner = Owner.find(decode(token)["user_id"])
-    if @owner:
+    if @owner
       result = Order.find_by_sql(
         "SELECT orders.id, orders.date, orders.address, orders.comments, orders.status, 
         customers.first_name, customers.last_name, customers.email
         from orders INNER JOIN customers
         ON customers.id = orders.customer_id")
       render json: result
-    else:
+    else
       render json: {
         authenticated: false,
         message: "must be an owner"
@@ -22,10 +22,10 @@ class OrdersController < ApplicationController
   def show
     token = request.headers["Authentication"].split(" ")[1]
     @owner = Owner.find(decode(token)["user_id"])
-    if @owner:
+    if @owner
       order = OrderItem.where(order_id: params[:id])
       render json: order
-    else:
+    else
       render json: {
         authenticated: false,
         message: "must be an owner"
