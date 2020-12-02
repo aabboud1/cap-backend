@@ -23,8 +23,14 @@ class OrdersController < ApplicationController
     token = request.headers["Authentication"].split(" ")[1]
     @owner = Owner.find(decode(token)["user_id"])
     if @owner
-      order = OrderItem.where(order_id: params[:id])
-      render json: order
+      # order = OrderItem.where(order_id: params[:id])
+      # render json: order
+      result = OrderItem.find_by_sql(
+        "SELECT order_items.item_id, order_items.quantity,
+        items.name, items.price, items.image, items.category
+        from order_items INNER JOIN items
+        ON order_items.item_id = items.id where order_items.order_id = " + params[:id] )
+      render json: result
     else
       render json: {
         authenticated: false,
